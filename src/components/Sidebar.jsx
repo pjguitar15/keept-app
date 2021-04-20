@@ -49,7 +49,7 @@ const Sidebar = () => {
       </Link>
 
       <NewEntryStyle onClick={newEntryClicked} className='mt-5 mb-3'>
-        <i className='far fa-plus-square mr-2'></i>New Entry
+        <i className='far fa-plus-square mr-2'></i>New Diary
       </NewEntryStyle>
       <Form className='p-2 mb-3'>
         <Form.Control placeholder='Search' />

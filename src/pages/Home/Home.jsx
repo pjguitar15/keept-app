@@ -55,8 +55,13 @@ const Home = () => {
           src={landingmedium}
           alt='navsvg'
         />
-        <LandingBG className='d-md-none' src={landingsmall} alt='navsvg' />
-        <LandingBG className='d-sm-none' src={landingxs} alt='navsvg' />
+        <LandingBG
+          style={{ top: '0', right: '-1rem' }}
+          className='d-xs-none d-sm-block d-md-none'
+          src={landingxs}
+          alt='navsvg'
+        />
+
         {/* Responsive SVG Background */}
         <Container className='position-relative'>
           <Jumbotron>

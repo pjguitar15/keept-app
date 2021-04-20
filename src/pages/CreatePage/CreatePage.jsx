@@ -22,6 +22,7 @@ const CreatePage = () => {
         <Link className='btn btn-outline-light btn-sm mt-2' to='/diary'>
           Back
         </Link>
+        <h4 className='text-center my-2 lead'>Today is Thursday, April 1</h4>
         <Form />
       </Container>
     </CreatePageWrapper>

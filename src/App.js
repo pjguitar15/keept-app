@@ -24,6 +24,7 @@ const App = () => {
           <Route path='/diary/create'>
             <CreatePage />
           </Route>
+
         </Switch>
       </CRUD>
     </Router>
