@@ -37,7 +37,7 @@ const Sidebar = () => {
     history.push('/diary/create')
   }
   return (
-    <SidebarWrapper className='m-0'>
+    <SidebarWrapper className='m-0 shadow'>
       <img
         style={{ width: '8rem', margin: '2rem' }}
         src={greenlogo}

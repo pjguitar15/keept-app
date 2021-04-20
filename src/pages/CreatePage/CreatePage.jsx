@@ -1,20 +1,30 @@
 import React from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
-// components
-import Sidebar from '../../components/Sidebar.jsx'
 import Form from './Form.jsx'
+import styled from 'styled-components'
+import logo from '../../Assets/SVG/logo.svg'
+import { Container } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+const CreatePageWrapper = styled.div`
+  background: #009081;
+  color: white;
+`
 const CreatePage = () => {
   return (
-    <div>
-      <Row className='m-0 p-0'>
-        <Col className='p-0 m-0' xl='3' lg='3' md='4' sm='12' xs='12'>
-          <Sidebar />
-        </Col>
-        <Col className='p-0 m-0' xl='9' lg='9' md='8' sm='12' xs='12'>
-          <Form />
-        </Col>
-      </Row>
-    </div>
+    <CreatePageWrapper>
+      <Container>
+        <div>
+          <img
+            style={{ width: '6rem', margin: '2rem 0' }}
+            src={logo}
+            alt='logo'
+          />
+        </div>
+        <Link className='btn btn-outline-light btn-sm mt-2' to='/diary'>
+          Back
+        </Link>
+        <Form />
+      </Container>
+    </CreatePageWrapper>
   )
 }
 
