@@ -73,16 +73,16 @@ const Home = () => {
               consequuntur voluptas aspernatur repellat aliquam voluptatem dolor
               optio, quae rem hic?
             </p>
-            <div className='mt-5 col-xl-4 col-lg-5 col-md-6 col-sm-8 col-8 mx-auto d-flex justify-content-between align-items-center'>
+            <div className='mt-5 col-xl-4 col-lg-5 col-md-6 col-sm-8 col-8 mx-auto d-flex justify-content-center align-items-center'>
               <PrimaryButton
                 onClick={() => history.push('/diary')}
-                className='my-btn'
+                className='my-btn mx-2'
               >
                 WRITE NOW
               </PrimaryButton>
               <SecondaryButton
                 onClick={() => history.push('/about')}
-                className='my-btn'
+                className='my-btn mx-2'
               >
                 ABOUT US
               </SecondaryButton>
