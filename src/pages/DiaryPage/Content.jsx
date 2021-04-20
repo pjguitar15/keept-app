@@ -1,12 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
+
 const ContentWrapper = styled.div`
   padding: 5rem;
 `
-const HeaderText = styled.h2`
+const HeaderText = styled.h3`
   color: white;
   background: #009081;
   padding: 10px 30px;
+  border-radius: 50px;
 `
 const MainContent = styled.p`
   margin-top: 3rem;
@@ -15,7 +17,7 @@ const Content = () => {
   return (
     <ContentWrapper>
       <HeaderText className='main-header-text col-6'>My New Year</HeaderText>
-      <p>Philcob</p>
+      {/* <p>Philcob</p> */}
       <MainContent>
         <p className='lead'>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia

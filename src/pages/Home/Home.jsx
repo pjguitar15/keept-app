@@ -39,6 +39,7 @@ const Home = () => {
     <div>
       <Navbar />
       <div>
+        {/* Responsive SVG Background */}
         <LandingBG
           className='d-none d-xl-block'
           src={landingfull}
@@ -56,11 +57,9 @@ const Home = () => {
         />
         <LandingBG className='d-md-none' src={landingsmall} alt='navsvg' />
         <LandingBG className='d-sm-none' src={landingxs} alt='navsvg' />
+        {/* Responsive SVG Background */}
         <Container className='position-relative'>
           <Jumbotron>
-            <div className='col-1 mx-auto'>
-              <img src={notepad} style={{ width: '100%' }} alt='logo' />
-            </div>
             <BigText className='main-header-text text-white text-center'>
               Keep your Memories Private
             </BigText>
@@ -76,7 +75,12 @@ const Home = () => {
               >
                 WRITE NOW
               </PrimaryButton>
-              <SecondaryButton className='my-btn'>ABOUT US</SecondaryButton>
+              <SecondaryButton
+                onClick={() => history.push('/about')}
+                className='my-btn'
+              >
+                ABOUT US
+              </SecondaryButton>
             </div>
           </Jumbotron>
         </Container>

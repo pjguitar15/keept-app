@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Form } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 // Assets
 import greenlogo from '../Assets/SVG/logogreen.svg'
 
@@ -12,9 +12,9 @@ const SidebarWrapper = styled.div`
 const NewEntryStyle = styled.div`
   background: #009081;
   color: white;
-  padding: 1rem 3rem;
-  font-size: 20px;
-  font-weight: 200;
+  padding: 0.5rem 3rem;
+  font-weight: 600;
+  font-size: 16px;
   cursor: pointer;
   transition: background 100ms ease-in-out;
   &:hover {
@@ -32,6 +32,10 @@ const ListItem = styled.div`
   }
 `
 const Sidebar = () => {
+  const history = useHistory()
+  const newEntryClicked = () => {
+    history.push('/diary/create')
+  }
   return (
     <SidebarWrapper className='m-0'>
       <img
@@ -44,14 +48,14 @@ const Sidebar = () => {
         Back
       </Link>
 
-      <NewEntryStyle className='mt-5 mb-3'>
+      <NewEntryStyle onClick={newEntryClicked} className='mt-5 mb-3'>
         <i className='far fa-plus-square mr-2'></i>New Entry
       </NewEntryStyle>
       <Form className='p-2 mb-3'>
         <Form.Control placeholder='Search' />
       </Form>
       <ListItem>
-        <h5 className='m-0'>Diary 1</h5>
+        <h6 className='m-0'>Diary 1</h6>
         <div style={{ fontSize: '14px' }} className='text-secondary mt-1'>
           January 1, 2021
         </div>
@@ -61,7 +65,7 @@ const Sidebar = () => {
         </div>
       </ListItem>
       <ListItem>
-        <h5 className='m-0'>Diary 1</h5>
+        <h6 className='m-0'>Diary 1</h6>
         <div style={{ fontSize: '14px' }} className='text-secondary mt-1'>
           January 1, 2021
         </div>
@@ -71,7 +75,7 @@ const Sidebar = () => {
         </div>
       </ListItem>
       <ListItem>
-        <h5 className='m-0'>Diary 1</h5>
+        <h6 className='m-0'>Diary 1</h6>
         <div style={{ fontSize: '14px' }} className='text-secondary mt-1'>
           January 1, 2021
         </div>
@@ -81,7 +85,7 @@ const Sidebar = () => {
         </div>
       </ListItem>
       <ListItem>
-        <h5 className='m-0'>Diary 1</h5>
+        <h6 className='m-0'>Diary 1</h6>
         <div style={{ fontSize: '14px' }} className='text-secondary mt-1'>
           January 1, 2021
         </div>
@@ -90,6 +94,9 @@ const Sidebar = () => {
           error!
         </div>
       </ListItem>
+      <a className='ml-4' href='#'>
+        View All
+      </a>
     </SidebarWrapper>
   )
 }
