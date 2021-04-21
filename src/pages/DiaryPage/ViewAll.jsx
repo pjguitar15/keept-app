@@ -28,7 +28,7 @@ const ViewAll = () => {
         {data
           .filter(
             item =>
-              item.content.toLowercase().includes(searchValue.toLowercase()) ||
+              item.content.toLowerCase().includes(searchValue.toLowerCase()) ||
               item.name.includes(searchValue)
           )
           .map((item, index) => (
