@@ -83,7 +83,7 @@ const Sidebar = () => {
         ))}
 
       <Link className='ml-4' to='/diary/view/view-all'>
-        {data.length > 4 && <> There are {data.length - 2} more </>}
+        {data.length > 4 && <> There are {data.length - 4} more </>}
         View All
       </Link>
     </SidebarWrapper>
