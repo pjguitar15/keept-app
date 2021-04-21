@@ -44,7 +44,7 @@ const ViewAll = () => {
                   <Card.Text>{item.name}</Card.Text>
                   <div>
                     {item.content.slice(0, 200)}
-                    <span className='text-primary'>..See more</span>
+                    <span>...</span>
                   </div>
                   <Button
                     onClick={() => history.push(`/diary/view/${item._id}`)}
