@@ -62,25 +62,28 @@ const Sidebar = () => {
           Welcome
         </h4>
       </ListItem>
-      {data.slice(0, 4).map((item, index) => (
-        <ListItem onClick={() => listItemClicked(item)} key={index}>
-          <h6 className='m-0'>{item.title}</h6>
-          <div style={{ fontSize: '14px' }} className='text-secondary mt-1'>
-            {item.name}
-          </div>
-          <div className='lead' style={{ fontSize: '14px' }}>
-            {item.content.slice(0, 120)}
-            {item.content.length > 100 && (
-              <span className='text-primary font-weight-bold'>
-                ... see more
-              </span>
-            )}
-          </div>
-        </ListItem>
-      ))}
+      {data
+        .reverse()
+        .slice(0, 4)
+        .map((item, index) => (
+          <ListItem onClick={() => listItemClicked(item)} key={index}>
+            <h6 className='m-0'>{item.title}</h6>
+            <div style={{ fontSize: '14px' }} className='text-secondary mt-1'>
+              {item.name}
+            </div>
+            <div className='lead' style={{ fontSize: '14px' }}>
+              {item.content.slice(0, 120)}
+              {item.content.length > 100 && (
+                <span className='text-primary font-weight-bold'>
+                  ... see more
+                </span>
+              )}
+            </div>
+          </ListItem>
+        ))}
 
       <Link className='ml-4' to='/diary/view/view-all'>
-        {data.length > 4 && <> There are {data.length - 3} more </>}
+        {data.length > 4 && <> There are {data.length - 2} more </>}
         View All
       </Link>
     </SidebarWrapper>
