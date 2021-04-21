@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
-
+import { useParams } from 'react-router-dom'
+import { DiaryData } from '../../context/CRUD'
+import welcome from '../../Assets/SVG/welcome.svg'
+import ViewAll from './ViewAll.jsx'
+import { useSpring, animated } from 'react-spring'
 const ContentWrapper = styled.div`
   position: relative;
   overflow: hidden;
@@ -12,48 +16,48 @@ const MainContent = styled.p`
   margin-top: 3rem;
 `
 const Content = () => {
+  const { param } = useParams()
+  const [data] = useContext(DiaryData)
+  const props = useSpring({
+    to: { opacity: 1 },
+    from: { opacity: 0 },
+    delay: 200
+  })
   return (
     <ContentWrapper>
       <div className='p-5'>
-        <HeaderText className='main-header-text text-center m-0'>
-          My New Year
-        </HeaderText>
-        <MainContent className='shadow p-5 col-10 mx-auto'>
-          <p className='text-secondary m-0 p-0'>Philcob Josol</p>
-          <p className='text-secondary m-0 p-0'>January 1, 2021</p>
-          <p className='mt-4'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
-            dolorem obcaecati enim deleniti vitae odit minima nobis, odio a
-            omnis et deserunt quos illo, error, exercitationem nulla iure quo
-            soluta! Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Mollitia dolorem obcaecati enim deleniti vitae odit minima nobis,
-            odio a omnis et deserunt quos illo, error, exercitationem nulla iure
-            quo soluta!
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
-            dolorem obcaecati enim deleniti vitae odit minima nobis, odio a
-            omnis et deserunt quos illo, error, exercitationem nulla iure quo
-            soluta! Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Mollitia dolorem obcaecati enim deleniti vitae odit minima nobis,
-            odio a omnis et deserunt quos illo, error, exercitationem nulla iure
-            quo soluta! dolorem obcaecati enim deleniti vitae odit minima nobis,
-            odio a omnis et deserunt quos illo, error, exercitationem nulla iure
-            quo soluta! Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Mollitia dolorem obcaecati enim deleniti vitae odit minima nobis,
-            odio a omnis et deserunt quos illo, error, exercitationem nulla iure
-            quo soluta!
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
-            dolorem obcaecati enim deleniti vitae odit minima nobis, odio a
-            omnis et deserunt quos illo, error, exercitationem nulla iure quo
-            soluta! Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Mollitia dolorem obcaecati enim deleniti vitae odit minima nobis,
-            odio a omnis et deserunt quos illo, error, exercitationem nulla iure
-            quo soluta!
-          </p>
-        </MainContent>
+        {param === 'view-all' && <ViewAll />}
+        {!param && (
+          <animated.div style={props}>
+            <div className='mx-auto col-4'>
+              <img className='mt-5 w-100' src={welcome} alt='welcome' />
+            </div>
+            <h1 className='display-4 text-secondary text-center'>
+              Nice to see you!
+            </h1>
+            <p className='text-center lead text-secondary col-5 mx-auto'>
+              Please click on the "New Diary" button on the left sidebar to
+              create a new diary entry.
+            </p>
+          </animated.div>
+        )}
+        {data
+          .filter(item => item._id === param)
+          .map((item, index) => (
+            <div key={index}>
+              <animated.div style={props}>
+                <HeaderText className='main-header-text text-center m-0'>
+                  {item.title}
+                </HeaderText>
+                <MainContent className='shadow p-5 col-lg-10 mx-auto'>
+                  <p className='text-secondary m-0 p-0'>{item.title}</p>
+                  <p className='text-secondary m-0 p-0'>{item.name}</p>
+
+                  <p style={{ lineHeight: '40px' }}>{item.content}</p>
+                </MainContent>
+              </animated.div>
+            </div>
+          ))}
       </div>
     </ContentWrapper>
   )

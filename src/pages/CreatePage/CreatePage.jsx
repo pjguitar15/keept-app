@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Form from './Form.jsx'
 import styled from 'styled-components'
 import logo from '../../Assets/SVG/logo.svg'
@@ -8,7 +8,14 @@ const CreatePageWrapper = styled.div`
   background: #009081;
   color: white;
 `
+
 const CreatePage = () => {
+  const [dateNow, setDateNow] = useState('')
+  useEffect(() => {
+    const dateToString = new Date().toString()
+    const sliced = dateToString.slice(0, dateToString.indexOf('GMT'))
+    setDateNow(sliced)
+  }, [])
   return (
     <CreatePageWrapper>
       <Container>
@@ -22,7 +29,7 @@ const CreatePage = () => {
         <Link className='btn btn-outline-light btn-sm mt-2' to='/diary'>
           Back
         </Link>
-        <h4 className='text-center my-2 lead'>Today is Thursday, April 1</h4>
+        <h4 className='text-center my-2 lead'>Today is {dateNow}</h4>
         <Form />
       </Container>
     </CreatePageWrapper>

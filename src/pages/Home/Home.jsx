@@ -6,9 +6,8 @@ import { useHistory } from 'react-router-dom'
 import landingfull from '../../Assets/SVG/landingfull.svg'
 import landinglarge from '../../Assets/SVG/landinglarge.svg'
 import landingmedium from '../../Assets/SVG/landingmedium.svg'
-import landingsmall from '../../Assets/SVG/landingsmall.svg'
 import landingxs from '../../Assets/SVG/landingxs.svg'
-import notepad from '../../Assets/SVG/notepad.svg'
+
 // components
 import Navbar from '../../components/Navbar.jsx'
 import { PrimaryButton, SecondaryButton } from '../../components/Button.jsx'

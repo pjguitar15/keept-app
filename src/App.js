@@ -18,10 +18,15 @@ const App = () => {
           <Route exact path='/about'>
             <About />
           </Route>
+          {/* displays default */}
           <Route exact path='/diary'>
             <DiaryPage />
           </Route>
-          <Route path='/diary/create'>
+          {/* displays the same but with different url */}
+          <Route exact path='/diary/view/:param'>
+            <DiaryPage />
+          </Route>
+          <Route exact path='/diary/create'>
             <CreatePage />
           </Route>
 

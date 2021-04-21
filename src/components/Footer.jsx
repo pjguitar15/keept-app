@@ -18,14 +18,14 @@ const Footer = () => {
     >
       <img
         className='position-absolute'
-        style={{ bottom: '0', zIndex: '-1', height: '100%', width: '100%' }}
+        style={{ bottom: '0', zIndex: '-1', width: '100%' }}
         src={footerbg}
         alt='footerbg'
       />
       <Container className='position-relative'>
         <img
           className='position-absolute'
-          style={{ width: '7rem', left: '2rem', top: '7rem' }}
+          style={{ width: '7rem', left: '2rem', bottom: '0' }}
           src={logo}
           alt='logo'
         />

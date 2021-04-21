@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
 // components
 import Sidebar from '../../components/Sidebar.jsx'
 import Content from './Content.jsx'
