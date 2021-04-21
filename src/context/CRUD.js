@@ -14,7 +14,7 @@ const CRUD = ({ children }) => {
   const history = useHistory()
   const createEntry = (e) => {
     e.preventDefault()
-    Axios.post('http://localhost:3001/api/diary/post', {
+    Axios.post('https://keept-app.herokuapp.com/api/diary/post', {
       name: nameValue,
       title: titleValue,
       content: textAreaValue
@@ -26,7 +26,7 @@ const CRUD = ({ children }) => {
     history.goBack()
   }
   useEffect(() => {
-    Axios.get('http://localhost:3001/api/diary/read').then(res => setData(res.data))
+    Axios.get('https://keept-app.herokuapp.com/api/diary/read').then(res => setData(res.data))
   }, [data])
   return (
     <CreateEntry.Provider value={createEntry}>
